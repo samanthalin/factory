@@ -1,0 +1,189 @@
+@charset "UTF-8";
+@import url(http://fonts.googleapis.com/earlyaccess/notosanstc.css);
+@import url(https://fonts.googleapis.com/css?family=Work+Sans:400,800,900);
+@import url(https://fonts.googleapis.com/css?family=PT+Sans:400,700);
+@import url(https://fonts.googleapis.com/css?family=Duru+Sans);
+
+
+/*reset*/
+h1, h2, h3, h4, h5, p {
+  margin: 0;
+  padding: 0; }
+
+br {
+  display: block;
+  margin: 0 0 5px; }
+
+ol, ul {
+  margin: 0;
+  padding: 0; }
+
+li {
+  list-style: none; }
+
+body{
+	padding: 0;
+	margin: 0;
+}
+
+body > img {
+  display: none; }
+
+img {
+  border: none;
+  padding: 0;
+  margin: 0; }
+
+a, a:active, a:visited, a:hover {
+  outline: none;
+  text-decoration: none;
+  background-color: none;
+  display: block;
+  -webkit-tap-highlight-color: transparent; 
+}
+
+table, tr, td {
+  padding: 0;
+  border-spacing: 0; }
+
+/*reset end */
+
+.index{
+	box-sizing: border-box;
+	overflow: hidden;
+	font-family: 'Noto Sans TC', sans-serif;
+	background-color: black;
+	.container{
+		width: 100%;
+		height: 100%;
+		.cat{
+			width: 50%;
+			height: 50vh;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			float: left;
+			&:after{
+				content: ' ';
+				position: absolute;
+				width: 50%;
+				height: 50vh;
+				background-color: black;
+				opacity: 0.6;
+			}
+			&:hover{
+				&:after{
+					content: ' ';
+					position: absolute;
+					width: 50%;
+					height: 50vh;
+					background-color: #2b79a9;
+					opacity: 0.6;
+					transition: background-color 0.3s linear;
+				}
+			}
+			.title{
+				text-align: center;
+				z-index: 10;
+				.text{
+					color: white;
+					font-size: 38px;
+				}
+				img{
+					height: 100px;
+    				margin-top: 20px;
+				}
+			}
+		}
+		.motor{
+			background-image: url(img/motor-bg.jpg);
+			background-size: cover;
+		}
+		.ambient{
+			background-image: url(img/ambient-bg.jpg);
+			background-size: cover;
+		}
+		.warnning{
+			background-image: url(img/warnning-bg.jpg);
+			background-size: cover;
+			background-position-y: 60%;
+		}
+		.history{
+			background-image: url(img/history-bg.jpg);
+			background-size: cover;
+		}
+	}
+}
+
+.motor-data{
+	font-family: 'Noto Sans TC', sans-serif;
+	.home{
+		position: absolute;
+		top: 10px;
+		left: 10px;
+		color: black;
+		font-size: 24px;
+	}
+	.container{
+		width: 80%;
+		margin: auto;
+		.title{
+			width: 100%;
+			text-align: center;
+			font-size: 28px;
+			margin-top: 15px;
+		}
+		.chart{
+			margin-top: 20px;
+		}
+	}
+}
+
+.ambient-data{
+	.home{
+		position: absolute;
+		top: 10px;
+		left: 10px;
+		color: black;
+		font-size: 24px;
+	}
+	.container{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		height: 100vh;
+		.map{
+			width: 60vw;
+			height: 30vw;
+			background-image: url(img/map.png);
+			background-size: contain;
+			background-repeat: no-repeat;
+		}
+		.sensor{
+			width: 30px;
+			height: 30px;
+			background-color: #58a292;
+			border-radius: 15px;
+			color: white;
+			position: absolute;
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
