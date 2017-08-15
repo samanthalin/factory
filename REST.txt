@@ -1,0 +1,3 @@
+每毫秒平均 http://140.124.184.204:8080/Cloud/{team}/QuerySecond?s=_____ (epoch格式 13碼)
+每秒平均 http://140.124.184.204:8080/Cloud/{team}/QueryMinute?m=_____ (epoch格式 13碼)
+每分平均 http://140.124.184.204:8080/Cloud/{team}/QueryHour?h=_____ (epoch格式 13碼)

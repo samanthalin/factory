@@ -78,9 +78,15 @@ table, tr, td {
         .index .container .cat .title .text {
           color: white;
           font-size: 38px; }
+          @media screen and (max-width: 767px) {
+            .index .container .cat .title .text {
+              font-size: 22px; } }
         .index .container .cat .title img {
           height: 100px;
           margin-top: 20px; }
+          @media screen and (max-width: 767px) {
+            .index .container .cat .title img {
+              height: 65px; } }
     .index .container .motor {
       background-image: url(img/motor-bg.jpg);
       background-size: cover; }
@@ -113,6 +119,9 @@ table, tr, td {
       margin-top: 15px; }
     .motor-data .container .chart {
       margin-top: 20px; }
+    @media screen and (max-width: 767px) {
+      .motor-data .container {
+        width: 100%; } }
 
 .ambient-data .home {
   position: absolute;

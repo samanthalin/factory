@@ -88,10 +88,16 @@ table, tr, td {
 				.text{
 					color: white;
 					font-size: 38px;
+					@media screen and (max-width: 767px){
+    					font-size: 22px;
+    				}
 				}
 				img{
 					height: 100px;
     				margin-top: 20px;
+    				@media screen and (max-width: 767px){
+    					height: 65px;
+    				}
 				}
 			}
 		}
@@ -135,6 +141,9 @@ table, tr, td {
 		}
 		.chart{
 			margin-top: 20px;
+		}
+		@media screen and (max-width: 767px){
+			width: 100%;
 		}
 	}
 }
