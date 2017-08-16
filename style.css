@@ -57,21 +57,6 @@ table, tr, td {
       justify-content: center;
       align-items: center;
       float: left; }
-      .index .container .cat:after {
-        content: ' ';
-        position: absolute;
-        width: 50%;
-        height: 50vh;
-        background-color: black;
-        opacity: 0.6; }
-      .index .container .cat:hover:after {
-        content: ' ';
-        position: absolute;
-        width: 50%;
-        height: 50vh;
-        background-color: #2b79a9;
-        opacity: 0.6;
-        transition: background-color 0.3s linear; }
       .index .container .cat .title {
         text-align: center;
         z-index: 10; }
