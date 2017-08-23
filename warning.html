@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Smart Factory</title>
+	<link rel="stylesheet" href="font-awesome.min.css">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<script>
+	
+	var urlMotorWsnAlarm =
+		"https://blahdns-proxy-eusudefuvv.now.sh/http://140.124.184.204:8080/Cloud/WSNalarm/QueryAll";
+
+	var urlWsnNewestData =
+		"https://blahdns-proxy-eusudefuvv.now.sh/http://140.124.184.204:8080/Cloud/WSN/NewestData";
+
+	var time = document.querySelector('#time');
+	time.innerHTML = `<h6>Current Time: ${new Date()}</h6>`;
+
+	var fetchDataMotorWsnAlarm = url => {
+		return fetch(url).then(resp => resp.json()).then(function(data) {
+			//console.log(data);
+			appendMotorWsnAlarm(data);
+		});
+	};
+
+	var fetchWsnNewestData = url => {
+		return fetch(url).then(resp => resp.json()).then(function(data) {
+			//console.log(data);
+			appendWsnNewestData(data)
+		});
+	};
+
+	fetchDataMotorWsnAlarm(urlMotorWsnAlarm);
+	fetchWsnNewestData(urlWsnNewestData)
+
+	function appendMotorWsnAlarm(data) {
+		var div = document.querySelector("#MotorWsnAlarm");
+		data.forEach(e => {
+			var temperature = String(e.temperature);
+			var mote = String(e.mote);
+			div.innerHTML += `
+		ID: ${e.id} <br>
+		Message: ${e.message} <br>
+		Mote: ${mote}<br>
+		Temparature: ${temperature} <br>
+		Time: ${Date(e.timeStame)}
+	`
+		});
+	}
+
+	function appendWsnNewestData(data) {
+		var div = document.querySelector("#WsnNewestData");
+		//console.log(data)
+		data.forEach(e => {
+			div.innerHTML += `
+		<div> <h6>Motor id: ${e.id}
+				<ul>
+		<li>Diff: ${e.diff}</li>
+		<li>endASN: ${e.endASN}</li>
+		<li>errorCounter: ${e.errorCounter}</li>
+		<li>lastSuccessLeft: ${e.lastSuccessLeft}</li>
+		<li>mote: ${e.mote}</li>
+		<li>myRank: ${e.myRank}</li>
+		<li>numDesync: ${e.numDesync}</li>
+		<li>startASN: ${e.startASN}</li>
+		<li>temperature: ${e.temperature}</li>
+		<li>time: ${Date(e.diff)}</li>
+		<li>tx: ${e.tx}</li>
+		<li>txACK: ${e.txACK}</li>
+				</ul>
+		</h6>
+	 </div>
+	`		
+		});
+	}
+
+	</script>
+		<div id="time"></div>
+		<h2>MotorWsnAlarm</h2>
+		<div id="MotorWsnAlarm"></div>
+		<hr>
+		<h2>WsnNewestData<h2>
+		<div id="WsnNewestData"></div>
+</body>
+</html>
