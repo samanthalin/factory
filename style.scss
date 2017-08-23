@@ -203,6 +203,26 @@ table, tr, td {
 		}
 	}
 }
+.warning-data{
+	font-family: 'Noto Sans TC', sans-serif;
+	width: 100%;
+	.container{
+		width: 80%;
+		margin: auto;
+		.title{
+			width: 100%;
+			text-align: center;
+			font-size: 28px;
+			margin-top: 15px;
+		}
+		form{
+			margin-top: 20px;
+		}
+		@media screen and (max-width: 767px){
+			width: 100%;
+		}
+	}
+}
 
 
 
