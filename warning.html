@@ -17,8 +17,8 @@
 	var urlWsnNewestData =
 		"https://blahdns-proxy-eusudefuvv.now.sh/http://140.124.184.204:8080/Cloud/WSN/NewestData";
 
-	var time = document.querySelector('#time');
-	time.innerHTML = `<h6>Current Time: ${new Date()}</h6>`;
+	// var time = document.querySelector('#time');
+	// time.innerHTML = `<h6>Current Time: ${new Date()}</h6>`;
 
 	var fetchDataMotorWsnAlarm = url => {
 		return fetch(url).then(resp => resp.json()).then(function(data) {
