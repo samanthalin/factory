@@ -32,6 +32,7 @@ $(document).ready(function(){
 	fetchWsnNews(urlWsnNews);
 
 	$('.sensor').click(function(){
+		$('.bubbel').hide();
 		var href = $(this).attr('href');
 		var dataId = $(href).attr('data-id');
 		console.log(dataId);
