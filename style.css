@@ -199,20 +199,61 @@ table, tr, td {
       position: absolute;
       width: 213px;
       height: 115px;
-      background-image: url(img/bubble.png);
+      background-image: url(img/bubbel.png);
       background-size: cover;
       padding: 10px;
       padding-left: 27px;
       top: 50%;
-      left: 50%; }
+      left: 50%;
+      display: none; }
       .ambient-data .container .bubbel .text {
         color: black; }
     .ambient-data .container #a647_data {
       margin-left: 275px;
       margin-top: -355px; }
-    .ambient-data .container #a72a_data {
+    .ambient-data .container #a6de_data {
       margin-left: 275px;
       margin-top: -280px; }
+    .ambient-data .container #a72a_data {
+      margin-left: 275px;
+      margin-top: -205px; }
+    .ambient-data .container #a70e_data {
+      width: 200px;
+      height: 127px;
+      background-image: url(img/bubbel2.png);
+      padding: 10px;
+      padding-bottom: 27px;
+      margin-left: -500px;
+      margin-top: -115px; }
+    .ambient-data .container #a6af_data {
+      width: 200px;
+      height: 127px;
+      background-image: url(img/bubbel2.png);
+      padding: 10px;
+      margin-left: -280px;
+      margin-top: -115px; }
+    .ambient-data .container #a6fb_data {
+      width: 200px;
+      height: 127px;
+      background-image: url(img/bubbel2.png);
+      padding: 10px;
+      margin-left: -55px;
+      margin-top: -115px; }
+    .ambient-data .container #a64f_data {
+      margin-left: 80px;
+      margin-top: 35px; }
+    .ambient-data .container #a6e2_data {
+      margin-left: 80px;
+      margin-top: 125px; }
+    .ambient-data .container #a646_data {
+      margin-left: 80px;
+      margin-top: 210px; }
+    .ambient-data .container #a6f6_data {
+      margin-left: -105px;
+      margin-top: 80px; }
+    .ambient-data .container #a664_data {
+      margin-left: -125px;
+      margin-top: 160px; }
 
 .warning-data {
   font-family: 'Noto Sans TC', sans-serif;
