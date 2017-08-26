@@ -6,18 +6,21 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Smart Factory</title>
 	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="warning.css">
 	<link rel="stylesheet" href="font/css/font-awesome.min.css">
 	<link rel="stylesheet" href="loding/grasp_mobile_progress_circle-1.0.0.min.css">
 	<script src="jquery-3.2.1.min.js"></script>
 	<script src="loding/grasp_mobile_progress_circle-1.0.0.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
 	<script src="jquery.pagination.js"></script>
+	<!-- start / webb -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.2/vue.min.js"></script>
+	<!-- end / webb -->
 	<script src="warning.js"></script>
 </head>
 <body class="warning-data">
-		<script>
-			
-		</script>
+	<div id="app">
 
 		<a href="index.html" class="home_btn">
 			<i i class="fa fa-th-large" aria-hidden="true"></i>
@@ -31,23 +34,37 @@
 		       <fieldset>
 		          
 		          <span>
-		             <select id = "select_cat">
-		               <option value = "2">環境異常</option>
-		               <option value = "3">馬達異常</option>
+		             <select v-on:change="greet" id = "select_cat">
+		               <option value = "WSNalarm">環境異常</option>
+		               <option value = "Iotivityalarm">馬達異常</option>
 		             </select>
 		          </span>
 		          <span>
-		             <select id = "select_time">
-		               <option value = "4">今日異常資料</option>
-		               <option value = "5">選擇其他日期</option>
+		             <select v-on:change="greet" id = "select_time">
+		               <option value = "today">今日異常資料</option>
+		               <option value = "pickday">選擇其他日期</option>
 		             </select>
 		          </span>
-		          <button id="get">確定</button>
+		          <span v-if="dateType === 'pickday'" v-on:change="greet" id="datepicker">
+		          	<input type="date" name="bday">
+		          </span>
+		          <button v-on:click="greet" id="get_button">確定</button>
 		          <!-- <a href="#" class="select_wsn">環境異常</a>
 		          <a href="#" class="select_motor">馬達異常</a> -->	
-					
-		
-					<div id="wsnAlarm"></div>
+					<div id="page_buttons">
+						<sapn class="page_btn" v-on:click="greet(page)" v-for="(page, index) in pages">{{page}}</span>
+					</div>
+					<div id="alarmTable">
+						<li v-if="type === 'WSNalarm'" v-for="(item, index) in items">
+							{{item.idx}} / Time: {{item.time}}  溫度感測器 {{item.moto}} {{item.msg}}({{item.temperature}} &#8451;)
+							<hr/>
+						</li>
+						<li v-if="type === 'Iotivityalarm'" v-for="(item, index) in items">
+							{{item.idx}} / Time: {{item.time}}  {{item.msg}}
+							<hr/>
+						</li>
+
+					</div>		
 					<!-- <div id="motorAlarm" ></div> -->
 
 					<!-- <div class="data_list wsnAlarm">
@@ -62,5 +79,6 @@
 				
 			</div> -->
 		</footer>
+	</div>
 </body>
 </html>
