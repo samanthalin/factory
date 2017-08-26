@@ -7,67 +7,60 @@
 	<title>Smart Factory</title>
 	<link rel="stylesheet" href="style.css">
 	<link rel="stylesheet" href="font/css/font-awesome.min.css">
+	<link rel="stylesheet" href="loding/grasp_mobile_progress_circle-1.0.0.min.css">
+	<script src="jquery-3.2.1.min.js"></script>
+	<script src="loding/grasp_mobile_progress_circle-1.0.0.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+	<script src="jquery.pagination.js"></script>
+	<script src="warning.js"></script>
 </head>
 <body class="warning-data">
-	<script>
-	
-	var urlMotorWsnAlarm =
-		"https://blahdns-proxy-eusudefuvv.now.sh/http://140.124.184.204:8080/Cloud/WSNalarm/QueryAll";
+		<script>
+			
+		</script>
 
-	var fetchDataMotorWsnAlarm = url => {
-		return fetch(url).then(resp => resp.json()).then(function(data) {
-			//console.log(data);
-			appendMotorWsnAlarm(data);
-		});
-	};
-
-	fetchDataMotorWsnAlarm(urlMotorWsnAlarm);
-
-	function appendMotorWsnAlarm(data) {
-		var div = document.querySelector("#MotorWsnAlarm");
-		data.forEach(e => {
-			var temperature = String(e.temperature);
-			var mote = String(e.mote);
-			div.innerHTML += `
-		${Date(e.timeStame)} &nbsp &nbsp
-		溫度感測器 ${mote}&nbsp &nbsp
-		Temparature ${temperature} &#8451; &nbsp &nbsp
-		 ${e.message}
-		<hr>
-	`
-		});
-	}
-
-	</script>
-		<a href="index.html" class="home">
+		<a href="index.html" class="home_btn">
 			<i i class="fa fa-th-large" aria-hidden="true"></i>
 		</a>
+		<!-- <div id="preloader">
+			<div id="loading_txt">Now Loading</div>
+		</div> -->
 		<div class="container">
 			<div class="title">異常紀錄</div>
 			<form>
 		       <fieldset>
-		          <!-- <legend>Selecting elements</legend> -->
+		          
 		          <span>
-		             <!-- <label>Select list</label> -->
-		             <select id = "myList">
-		               <option value = "1">全部時間</option>
+		             <select id = "select_cat">
 		               <option value = "2">環境異常</option>
 		               <option value = "3">馬達異常</option>
 		             </select>
 		          </span>
 		          <span>
-		             <!-- <label>Select list</label> -->
-		             <select id = "myList">
-		               <option value = "4">全部時間</option>
-		               <option value = "5">一日內</option>
-		               <option value = "6">一週內</option>
+		             <select id = "select_time">
+		               <option value = "4">今日異常資料</option>
+		               <option value = "5">選擇其他日期</option>
 		             </select>
 		          </span>
+		          <button id="get">確定</button>
+		          <!-- <a href="#" class="select_wsn">環境異常</a>
+		          <a href="#" class="select_motor">馬達異常</a> -->	
+					
+		
+					<div id="wsnAlarm"></div>
+					<!-- <div id="motorAlarm" ></div> -->
 
-					<div id="MotorWsnAlarm"></div>
+					<!-- <div class="data_list wsnAlarm">
+						<iframe src="" frameborder="0"></iframe>
+					</div> -->
 
 		       </fieldset>
 		    </form>
 		</div><!-- container -->
+		<footer>
+			<!-- <div class="page-count">
+				
+			</div> -->
+		</footer>
 </body>
 </html>
