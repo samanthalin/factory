@@ -158,6 +158,10 @@ $blue: #2b79a9;
 
 .ambient-data{
 	font-family: 'Helvetica';
+	.home_btn{
+		position: fixed;
+		z-index: 999;
+	}
 	.container{
 		width: 100%;
 		height: 100%;
@@ -187,7 +191,7 @@ $blue: #2b79a9;
 				vertical-align: middle;
 				line-height: 42px;
 				font-weight: 100;
-			}
+			}//sensor
 			#a647{ margin-left: 178px; margin-top: -315px;}
 			#a6de{margin-left: 178px; margin-top: -240px;}
 			#a72a{margin-left: 178px; margin-top: -165px;}
@@ -199,6 +203,29 @@ $blue: #2b79a9;
 			#a646{margin-left: -20px; margin-top: 250px;}
 			#a6f6{margin-left: -200px; margin-top: 120px;}
 			#a664{margin-left: -220px; margin-top: 200px;}
+		}//map
+		.bubbel{
+			box-sizing: border-box;
+			position: absolute;
+			width: 213px;
+			height: 115px;
+			background-image: url(img/bubble.png);
+			background-size: cover;
+			padding: 10px;
+			padding-left: 27px;
+			top: 50%;
+			left: 50%;
+			.text{
+				color: black;
+			}
+		}//bubble
+		#a647_data{
+			margin-left: 275px;
+			margin-top: -355px;
+		}
+		#a72a_data{
+			margin-left: 275px;
+			margin-top: -280px;
 		}
 	}
 }

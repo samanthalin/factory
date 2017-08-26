@@ -130,6 +130,9 @@ table, tr, td {
 
 .ambient-data {
   font-family: 'Helvetica'; }
+  .ambient-data .home_btn {
+    position: fixed;
+    z-index: 999; }
   .ambient-data .container {
     width: 100%;
     height: 100%;
@@ -191,6 +194,25 @@ table, tr, td {
       .ambient-data .container .map #a664 {
         margin-left: -220px;
         margin-top: 200px; }
+    .ambient-data .container .bubbel {
+      box-sizing: border-box;
+      position: absolute;
+      width: 213px;
+      height: 115px;
+      background-image: url(img/bubble.png);
+      background-size: cover;
+      padding: 10px;
+      padding-left: 27px;
+      top: 50%;
+      left: 50%; }
+      .ambient-data .container .bubbel .text {
+        color: black; }
+    .ambient-data .container #a647_data {
+      margin-left: 275px;
+      margin-top: -355px; }
+    .ambient-data .container #a72a_data {
+      margin-left: 275px;
+      margin-top: -280px; }
 
 .warning-data {
   font-family: 'Noto Sans TC', sans-serif;
