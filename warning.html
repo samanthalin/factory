@@ -12,12 +12,14 @@
 	<script src="loding/grasp_mobile_progress_circle-1.0.0.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
 	<script src="jquery.pagination.js"></script>
+	<!-- start / webb -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.2/vue.min.js"></script>
+	<!-- end / webb -->
 	<script src="warning.js"></script>
 </head>
 <body class="warning-data">
-		<script>
-			
-		</script>
+	<div id="app">
 
 		<a href="index.html" class="home_btn">
 			<i i class="fa fa-th-large" aria-hidden="true"></i>
@@ -31,9 +33,9 @@
 		       <fieldset>
 		          
 		          <span>
-		             <select id = "select_cat">
-		               <option value = "2">環境異常</option>
-		               <option value = "3">馬達異常</option>
+		             <select v-on:change="greet" id = "select_cat">
+		               <option value = "WSNalarm">環境異常</option>
+		               <option value = "Iotivityalarm">馬達異常</option>
 		             </select>
 		          </span>
 		          <span>
@@ -45,9 +47,17 @@
 		          <button id="get">確定</button>
 		          <!-- <a href="#" class="select_wsn">環境異常</a>
 		          <a href="#" class="select_motor">馬達異常</a> -->	
-					
-		
-					<div id="wsnAlarm"></div>
+					<div id="wsnAlarm">
+						<li v-if="alarmType === 'WSNalarm'" v-for="(item, index) in items">
+							{{item.idx}} / Time: {{item.time}}  溫度感測器 {{item.moto}} {{item.msg}}({{item.temperature}} &#8451;)
+							<hr/>
+						</li>
+						<li v-if="alarmType === 'Iotivityalarm'" v-for="(item, index) in items">
+							{{item.idx}} / Time: {{item.time}}  {{item.msg}}
+							<hr/>
+						</li>
+
+					</div>					
 					<!-- <div id="motorAlarm" ></div> -->
 
 					<!-- <div class="data_list wsnAlarm">
@@ -62,5 +72,6 @@
 				
 			</div> -->
 		</footer>
+	</div>
 </body>
 </html>
