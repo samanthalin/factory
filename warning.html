@@ -6,6 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Smart Factory</title>
 	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="warning.css">
 	<link rel="stylesheet" href="font/css/font-awesome.min.css">
 	<link rel="stylesheet" href="loding/grasp_mobile_progress_circle-1.0.0.min.css">
 	<script src="jquery-3.2.1.min.js"></script>
@@ -39,25 +40,31 @@
 		             </select>
 		          </span>
 		          <span>
-		             <select id = "select_time">
-		               <option value = "4">今日異常資料</option>
-		               <option value = "5">選擇其他日期</option>
+		             <select v-on:change="greet" id = "select_time">
+		               <option value = "today">今日異常資料</option>
+		               <option value = "pickday">選擇其他日期</option>
 		             </select>
 		          </span>
-		          <button id="get">確定</button>
+		          <span v-if="dateType === 'pickday'" v-on:change="greet" id="datepicker">
+		          	<input type="date" name="bday">
+		          </span>
+		          <button v-on:click="greet" id="get_button">確定</button>
 		          <!-- <a href="#" class="select_wsn">環境異常</a>
 		          <a href="#" class="select_motor">馬達異常</a> -->	
-					<div id="wsnAlarm">
-						<li v-if="alarmType === 'WSNalarm'" v-for="(item, index) in items">
+					<div id="page_buttons">
+						<sapn class="page_btn" v-on:click="greet(page)" v-for="(page, index) in pages">{{page}}</span>
+					</div>
+					<div id="alarmTable">
+						<li v-if="type === 'WSNalarm'" v-for="(item, index) in items">
 							{{item.idx}} / Time: {{item.time}}  溫度感測器 {{item.moto}} {{item.msg}}({{item.temperature}} &#8451;)
 							<hr/>
 						</li>
-						<li v-if="alarmType === 'Iotivityalarm'" v-for="(item, index) in items">
+						<li v-if="type === 'Iotivityalarm'" v-for="(item, index) in items">
 							{{item.idx}} / Time: {{item.time}}  {{item.msg}}
 							<hr/>
 						</li>
 
-					</div>					
+					</div>		
 					<!-- <div id="motorAlarm" ></div> -->
 
 					<!-- <div class="data_list wsnAlarm">

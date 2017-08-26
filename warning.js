@@ -1,72 +1,21 @@
 $(document).ready(function(){
-
-  var currentDate = Math.round(new Date().getTime());
-
-  // var urlWsnPage =
-  //   'https://blahdns-proxy-eusudefuvv.now.sh/http://140.124.184.204:8080/Cloud/Iotivityalarm/Count?epoch='+currentDate;
-
-  // var fetchWsnPage = url => {
-  //   return fetch(url).then(resp => resp.json()).then(function(wsn_page) {
-  //     console.log(wsn_page);
-  //     appendWsnPage(wsn_page);
-  //   });
-  // };
-
-  // fetchWsnPage(urlWsnPage);
-
-  // function appendWsnPage(wsn_page) {
-  //   var div = document.querySelector(".page-count");
-  //   // console.log(wsn_page.length);
-  //   wsn_page.forEach(e => {
-  //     var temperature = String(e.temperature);
-  //     var mote = String(e.mote);
-  //     div.innerHTML += `
-  //   Time: ${moment(e.timeStamp*1000).format('YYYY/MM/DD HH:mm:ss')} &nbsp &nbsp
-  //   溫度感測器 ${mote}&nbsp &nbsp
-  //    ${e.message}(${temperature} &#8451;)
-  //   <hr>
-  // `
-  //   });
-  // }
-
-  // var urlMotorAlarm = 
-  //   "https://blahdns-proxy-eusudefuvv.now.sh/http://140.124.184.204:8080/Cloud/Iotivityalarm/QueryAll";
-
-  // var fetchDataMotorAlarm = url => {
-  //   return fetch(url).then(resp => resp.json()).then(function(data_motor) {
-  //     console.log(data_motor);
-  //     appendMotorAlarm(data_motor);
-  //   });
-  // };
-
-  // fetchDataMotorAlarm(urlMotorAlarm);
-
-  // function appendMotorAlarm(data_motor) {
-  //   var div = document.querySelector("#motorAlarm");
-  //   data_motor.forEach(e => {
-  //     var state = String(e.state);
-  //     var reason = String(e.reason);
-  //     //var time = String(e.timeStamp);
-  //     div.innerHTML += `
-  //     Time: ${moment(e.time).format('YYYY/MM/DD HH:mm:ss')} &nbsp &nbsp
-  //     馬達 &nbsp &nbsp
-  //     ${e.message}
-  //   <hr>
-  // `
-  //   });
-  // }
   var corsProxyServer = 'https://blahdns-proxy-eusudefuvv.now.sh/';
   var ntutCsieServer = 'http://140.124.184.204:8080/Cloud/'
-  var date = moment("2017-08-23").format('x')
-  var page = 0
+  var date = moment().format('x')//moment("2017-08-23").format('x')
+  var page = 1
+  var totalAlarmCount = 0
+  var totalPages = 1
+
   //WSNalarm or Iotivityalarm
   // var alarmType = 'Iotivityalarm'
-  
+  var dateType = 'today'
+  var alarmType = 'WSNalarm'
   var result = {}
 
-  var fetchDataWsnAlarm = (alarmType) => {
+  var fetchAlarmData = (alarmType, date) => {
+    // console.warn(alarmType, moment(date, 'x').format('YYYY-MM-DD'))
     var url =
-    corsProxyServer + ntutCsieServer + alarmType +'/QueryByDate?epoch=' + date + '&page=' + page;
+    corsProxyServer + ntutCsieServer + alarmType +'/QueryByDate?epoch=' + date + '&page=' + (page - 1);
     return fetch(url).then(resp => resp.json()).then(
       function(resultArray) {
         console.warn('ajax go')
@@ -74,7 +23,7 @@ $(document).ready(function(){
           case 'WSNalarm': {
             result = resultArray.map((item, index) => {
               return {
-                idx: 100 * page + index + 1,
+                idx: 100 * (page - 1) + index + 1,
                 time: moment(item.timeStamp*1000).format('YYYY/MM/DD HH:mm:ss'),
                 moto: String(item.mote),
                 temperature: String(item.temperature),
@@ -86,7 +35,7 @@ $(document).ready(function(){
           case 'Iotivityalarm': {
             result = resultArray.map((item, index) => {
               return {
-                idx: 100 * page + index + 1,
+                idx: 100 * (page - 1) + index + 1,
                 time: item.timeStamp,
                 msg: item.message
               }
@@ -95,62 +44,115 @@ $(document).ready(function(){
           }
         }
 
-        // result = data_wsn
-        console.warn(result)
-        example1.alarmType = alarmType
-        example1.items = result
+        alarmTable.type = alarmType
+        alarmTable.items = result
       }
     );
   };
 
-  fetchDataWsnAlarm('WSNalarm');
-  var example1 = new Vue({
-    el: '#wsnAlarm',
+  var fetchAlarmCount = (alarmType, date) => {
+    console.warn(alarmType, moment(date, 'x').format('YYYY-MM-DD'))
+    var url =
+    corsProxyServer + ntutCsieServer + alarmType +'/Count?epoch=' + date
+    return fetch(url).then(resp => resp.json()).then(
+      function(result) {
+        console.warn('count:' + result.count)
+        totalAlarmCount = result.count
+        totalPages = (alarmType === 'WSNalarm' ? totalAlarmCount / 100 : totalAlarmCount / 200) + 1
+        var pageArray = function(){
+          var arr = []
+          for(var i = 1; i<= totalPages; i++) {
+            arr.push(i)
+          }
+          return arr
+        }()
+        pageButtonComponent.pages = pageArray
+        console.warn(pageArray)
+        // alarmTable.type = alarmType
+        // alarmTable.items = result
+      }
+    );
+  };
+
+
+
+  
+
+  // 顯示所有資料的表格
+  var alarmTable = new Vue({
+    el: '#alarmTable',
     data: {
       items: result
     }
   })
 
-  // function appendWsnAlarm(data_wsn) {
-  //   var div = document.querySelector("#wsnAlarm");
-  //   data_wsn.forEach(e => {
-  //     var temperature = String(e.temperature);
-  //     var mote = String(e.mote);
-  //     div.innerHTML += `
-  //   Time: ${moment(e.timeStamp*1000).format('YYYY/MM/DD HH:mm:ss')} &nbsp &nbsp
-  //   溫度感測器 ${mote}&nbsp &nbsp
-  //    ${e.message}(${temperature} &#8451;)
-  //   <hr>
-  // `
-  //   });
-  // }
-  var selectorChangeHandler = new Vue({
-    el: '#select_cat',
+  // 月曆選日期
+  var datePicker = new Vue({
+    el: '#datepicker',
     data: {
-      name: 'Vue.js'
+      dateType
     },
-    // define methods under the `methods` object
     methods: {
       greet: function (event) {
         console.warn(event.target.value)
-        fetchDataWsnAlarm(event.target.value)
+        date =  moment(event.target.value, 'YYYY-MM-DD').format('x')
       }
     }
   })
 
+  // 
+  var alarmTypeChangeHandler = new Vue({
+    el: '#select_cat',
+    methods: {
+      greet: function (event) {
+        alarmType = event.target.value
+      }
+    }
+  })
+  var dateTypeChangeHandler = new Vue({
+    el: '#select_time',
+    methods: {
+      greet: function (event) {
+        datePicker.dateType = event.target.value
+        if (event.target.value === 'today') {
+          date = moment().format('x')
+        } else {
+          date = moment("2017-08-23").format('x')
+        }
+        // console.warn(event.target.value)
+        // fetchAlarmData(event.target.value)
+      }
+    }
+  })
+  var buttonHandler = new Vue({
+    el: '#get_button',
+    methods: {
+      greet: function (event) {
+        // console.warn(event.target.value)
+        event.preventDefault()
+        fetchAlarmCount(alarmType, date)
+        fetchAlarmData(alarmType, date)
+      }
+    }
+  })
+
+  // page buttons
+  var pageButtonComponent = new Vue({
+    el: '#page_buttons',
+    data: {
+      pages: [1]
+    },
+    methods: {
+      greet: function (p) {
+        page = p
+        // event.preventDefault()
+        fetchAlarmCount(alarmType, date)
+        fetchAlarmData(alarmType, date)
+      }
+    }
+  })  
   
-  // console.log($('#select_cat').val());
-  
-  // var selectA = $('#select_cat, #select_time')
-  // selectA.on('click, change', regenerateData)
-
-  // function regenerateData (){
-  //   var v = $('#select_cat option:selected').val();
-  // console.log(v);
-  // }
-
-  // $('button').click(function(){
-
-  // });
-
+  // init fetch
+  fetchAlarmCount(alarmType, date)
+  fetchAlarmData(alarmType, date)
 });
