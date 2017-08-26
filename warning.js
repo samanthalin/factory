@@ -35,7 +35,7 @@ $(document).ready(function(){
           case 'Iotivityalarm': {
             result = resultArray.map((item, index) => {
               return {
-                idx: 100 * (page - 1) + index + 1,
+                idx: 200 * (page - 1) + index + 1,
                 time: item.timeStamp,
                 msg: item.message
               }
