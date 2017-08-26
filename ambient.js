@@ -10,12 +10,15 @@ $(document).ready(function(){
 		});
 	};
 	function appendWsnNews(wsn_news) {
-		var div = document.querySelector(".bubbel");
+		var getDiv = function(id) {
+			return document.querySelector('#'+id+'_data')
+		}
 		wsn_news.forEach(e => {
 		var temperature = String(e.temperature);
 		var mote = String(e.mote);
 		var id = String(e.id);
 		console.log(id);
+		var div = getDiv(mote.slice(18, 22));
 		div.innerHTML += `
 			id:${id}<br>
 			現在溫度 ${temperature} &#8451;<br>
