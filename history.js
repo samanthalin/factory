@@ -8,7 +8,7 @@ $(document).ready(function(){
       var time = $('#time').val();
       var dateTime = date+' '+time
       var convertedTime = moment(dateTime, 'YYYY-MM-DD HH:mm:ss').format('x')
-      convertedTime = convertedTime/1000
+      // convertedTime = convertedTime/1000
 
       console.log('OrginTime:'+ dateTime + 'ConvertedTime:' + convertedTime );
       getHistory(convertedTime)
@@ -16,11 +16,12 @@ $(document).ready(function(){
 
   
     function getHistory(dateTime) {
-      var url = 'https://blahdns-proxy-eusudefuvv.now.sh/http://140.124.184.204:8080/Cloud/Iotivity/QuerySecond?minute='+dateTime
+      var url = 'https://blahdns-proxy-eusudefuvv.now.sh/http://140.124.184.204:8080/Cloud/Iotivity/QuerySecond?second='+dateTime
+      console.log(url);
       $.getJSON(url, function (data) {
       // Create the chart
         var reData = data.map(value => {
-          var timeStamp = moment(value.timeStamp, 'YYYYMMDD-HHmmss.SSS').valueOf()//.format('x')
+          var timeStamp = moment(value.timeStamp, 'YYYYMMDD-hhmmss.SSS').valueOf()//.format('x')
           var val = value.voltage['0']['sensorValue']
           return [timeStamp, Math.abs(val) ]
         }).reverse()
