@@ -1,7 +1,4 @@
 $(document).ready(function(){
-	$('.sensor').click(function(){
-		var href = $(this).attr('href');
-		console.log(href)
-		$(href).toggle();
-	});
+	$('#page_buttons .page_btn:first-child').addClass('active');
+
 });

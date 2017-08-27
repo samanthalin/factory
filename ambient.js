@@ -30,9 +30,14 @@ $(document).ready(function(){
 	fetchWsnNews(urlWsnNews);
 
 	$('.sensor').click(function(){
+		console.log()
 		$('.bubbel').hide();
 		var href = $(this).attr('href');
 		$(href).toggle();
+	});
+
+	$('.bubbel').click(function(){
+		$(this).hide();
 	});
 });
 

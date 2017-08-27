@@ -1,22 +1,7 @@
 $(document).ready(function(){
-   
-    // var data = '';
-    $('#getData').on('click', selectedHistory)
-    
-    function selectedHistory(){
-      var date = $('#date').val();
-      var time = $('#time').val();
-      var dateTime = date+' '+time
-      var convertedTime = moment(dateTime, 'YYYY-MM-DD hh:mm:ss').format('x')
-      // convertedTime = convertedTime/1000
 
-      console.log('OrginTime:'+ dateTime + 'ConvertedTime:' + convertedTime );
-      getHistory(convertedTime)
-    }
-
-  
-    function getHistory(dateTime) {
-      var url = 'https://blahdns-proxy-eusudefuvv.now.sh/http://140.124.184.204:8080/Cloud/Iotivity/QuerySecond?second='+dateTime
+    function drawMotorNews() {
+      var url = 'https://blahdns-proxy-eusudefuvv.now.sh/http://140.124.184.204:8080/Cloud/Iotivity/QueryAll'
       $.getJSON(url, function (data) {
       // Create the chart
         var reData = data.map(value => {
@@ -30,7 +15,7 @@ $(document).ready(function(){
 		        useUTC: false
 		    }
 		});
-        Highcharts.stockChart('showData', {
+        Highcharts.stockChart('container', {
           // rangeSelector: {
           //   selected: 
           // },
@@ -69,5 +54,4 @@ $(document).ready(function(){
     }
     
 
-    
 });

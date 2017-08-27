@@ -18,7 +18,7 @@ $(document).ready(function(){
     corsProxyServer + ntutCsieServer + alarmType +'/QueryByDate?epoch=' + date + '&page=' + (page - 1);
     return fetch(url).then(resp => resp.json()).then(
       function(resultArray) {
-        console.warn('ajax go')
+        // console.warn('ajax go')
         switch (alarmType) {
           case 'WSNalarm': {
             result = resultArray.map((item, index) => {
@@ -51,12 +51,12 @@ $(document).ready(function(){
   };
 
   var fetchAlarmCount = (alarmType, date) => {
-    console.warn(alarmType, moment(date, 'x').format('YYYY-MM-DD'))
+    //console.warn(alarmType, moment(date, 'x').format('YYYY-MM-DD'))
     var url =
     corsProxyServer + ntutCsieServer + alarmType +'/Count?epoch=' + date
     return fetch(url).then(resp => resp.json()).then(
       function(result) {
-        console.warn('count:' + result.count)
+        //console.warn('count:' + result.count)
         totalAlarmCount = result.count
         totalPages = (alarmType === 'WSNalarm' ? totalAlarmCount / 100 : totalAlarmCount / 200) + 1
         var pageArray = function(){
@@ -67,7 +67,7 @@ $(document).ready(function(){
           return arr
         }()
         pageButtonComponent.pages = pageArray
-        console.warn(pageArray)
+        //console.warn(pageArray)
         // alarmTable.type = alarmType
         // alarmTable.items = result
       }
@@ -94,7 +94,7 @@ $(document).ready(function(){
     },
     methods: {
       greet: function (event) {
-        console.warn(event.target.value)
+        //console.warn(event.target.value)
         date =  moment(event.target.value, 'YYYY-MM-DD').format('x')
       }
     }
