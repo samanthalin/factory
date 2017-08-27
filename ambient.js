@@ -5,7 +5,7 @@ $(document).ready(function(){
 
 	var fetchWsnNews = url => {
 		return fetch(url).then(resp => resp.json()).then(function(wsn_news) {
-			console.log(wsn_news);
+			// console.log(wsn_news);
 			appendWsnNews(wsn_news);
 		});
 	};
@@ -17,29 +17,28 @@ $(document).ready(function(){
 		var temperature = String(e.temperature);
 		var mote = String(e.mote);
 		var id = String(e.id);
-		console.log(id);
+		// console.log(id);
 		var div = getDiv(mote.slice(18, 22));
-		div.innerHTML += `
-			id:${id}<br>
-			現在溫度 ${temperature} &#8451;<br>
+		div.innerHTML += 
+			//id:${id}<br>
+			`
+			感測溫度 <span class="color">${temperature}&#8451;</span>
 			`
 		});
-		
 	}
-
-
 
 	fetchWsnNews(urlWsnNews);
 
 	$('.sensor').click(function(){
 		$('.bubbel').hide();
 		var href = $(this).attr('href');
-		var dataId = $(href).attr('data-id');
-		console.log(dataId);
 		$(href).toggle();
 	});
-
 });
+
+// if (tem >= 40){
+// 	$('.color').css('color', '#b93f4d');
+// }
 
 
 

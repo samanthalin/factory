@@ -12,6 +12,9 @@
 	<script src="jquery-3.2.1.min.js"></script>
 	<script src="loding/grasp_mobile_progress_circle-1.0.0.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+	<script src="https://code.highcharts.com/stock/highstock.js"></script>
+	<script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
+
 	<script src="history.js"></script>
 
 </head>
@@ -24,7 +27,7 @@
 	<div class="container">
 		<div class="title">歷史紀錄</div>
 		<input type="date" value="" id="date">
-		<input type="time" value="" id="time">
+		<input type="time" value="" step="1" id="time">
 		<button type="button" id="getData">Get</button>
 		
 		<div id="showData">

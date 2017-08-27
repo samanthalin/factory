@@ -2,6 +2,7 @@
 @import url(https://fonts.googleapis.com/css?family=Work+Sans:400,800,900);
 @import url(https://fonts.googleapis.com/css?family=PT+Sans:400,700);
 @import url(https://fonts.googleapis.com/css?family=Duru+Sans);
+@import url(animate.css);
 /*reset*/
 h1, h2, h3, h4, h5, p {
   margin: 0;
@@ -194,66 +195,72 @@ table, tr, td {
       .ambient-data .container .map #a664 {
         margin-left: -220px;
         margin-top: 200px; }
-    .ambient-data .container .bubbel {
-      box-sizing: border-box;
-      position: absolute;
-      width: 213px;
-      height: 115px;
-      background-image: url(img/bubbel.png);
-      background-size: cover;
-      padding: 10px;
-      padding-left: 27px;
-      top: 50%;
-      left: 50%;
-      display: none; }
-      .ambient-data .container .bubbel .text {
-        color: black; }
-    .ambient-data .container #a647_data {
-      margin-left: 275px;
-      margin-top: -355px; }
-    .ambient-data .container #a6de_data {
-      margin-left: 275px;
-      margin-top: -280px; }
-    .ambient-data .container #a72a_data {
-      margin-left: 275px;
-      margin-top: -205px; }
-    .ambient-data .container #a70e_data {
-      width: 200px;
-      height: 127px;
-      background-image: url(img/bubbel2.png);
-      padding: 10px;
-      padding-bottom: 27px;
-      margin-left: -500px;
-      margin-top: -115px; }
-    .ambient-data .container #a6af_data {
-      width: 200px;
-      height: 127px;
-      background-image: url(img/bubbel2.png);
-      padding: 10px;
-      margin-left: -280px;
-      margin-top: -115px; }
-    .ambient-data .container #a6fb_data {
-      width: 200px;
-      height: 127px;
-      background-image: url(img/bubbel2.png);
-      padding: 10px;
-      margin-left: -55px;
-      margin-top: -115px; }
-    .ambient-data .container #a64f_data {
-      margin-left: 80px;
-      margin-top: 35px; }
-    .ambient-data .container #a6e2_data {
-      margin-left: 80px;
-      margin-top: 125px; }
-    .ambient-data .container #a646_data {
-      margin-left: 80px;
-      margin-top: 210px; }
-    .ambient-data .container #a6f6_data {
-      margin-left: -105px;
-      margin-top: 80px; }
-    .ambient-data .container #a664_data {
-      margin-left: -125px;
-      margin-top: 160px; }
+      .ambient-data .container .map .bubbel {
+        box-sizing: border-box;
+        position: absolute;
+        width: 213px;
+        height: 115px;
+        background-image: url(img/bubbel.png);
+        background-size: cover;
+        padding: 10px;
+        padding-left: 27px;
+        top: 50%;
+        left: 50%;
+        display: none;
+        animation-name: zoomIn;
+        animation-duration: 0.3s;
+        animation-iteration-count: 1; }
+        .ambient-data .container .map .bubbel .text {
+          color: black; }
+        .ambient-data .container .map .bubbel .close {
+          color: gray;
+          float: right; }
+      .ambient-data .container .map #a647_data {
+        margin-left: 275px;
+        margin-top: -355px; }
+      .ambient-data .container .map #a6de_data {
+        margin-left: 275px;
+        margin-top: -280px; }
+      .ambient-data .container .map #a72a_data {
+        margin-left: 275px;
+        margin-top: -205px; }
+      .ambient-data .container .map #a70e_data {
+        width: 200px;
+        height: 127px;
+        background-image: url(img/bubbel2.png);
+        padding: 10px;
+        padding-bottom: 27px;
+        margin-left: -500px;
+        margin-top: -115px; }
+      .ambient-data .container .map #a6af_data {
+        width: 200px;
+        height: 127px;
+        background-image: url(img/bubbel2.png);
+        padding: 10px;
+        margin-left: -280px;
+        margin-top: -115px; }
+      .ambient-data .container .map #a6fb_data {
+        width: 200px;
+        height: 127px;
+        background-image: url(img/bubbel2.png);
+        padding: 10px;
+        margin-left: -55px;
+        margin-top: -115px; }
+      .ambient-data .container .map #a64f_data {
+        margin-left: 80px;
+        margin-top: 35px; }
+      .ambient-data .container .map #a6e2_data {
+        margin-left: 80px;
+        margin-top: 125px; }
+      .ambient-data .container .map #a646_data {
+        margin-left: 80px;
+        margin-top: 210px; }
+      .ambient-data .container .map #a6f6_data {
+        margin-left: -105px;
+        margin-top: 80px; }
+      .ambient-data .container .map #a664_data {
+        margin-left: -125px;
+        margin-top: 160px; }
 
 .warning-data {
   font-family: 'Noto Sans TC', sans-serif;
