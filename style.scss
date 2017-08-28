@@ -131,27 +131,35 @@ $blue: #2b79a9;
 
 .motor-data{
 	font-family: 'Noto Sans TC', sans-serif;
-	.home{
-		position: absolute;
-		top: 10px;
-		left: 10px;
-		color: black;
-		font-size: 24px;
-	}
 	.container{
 		width: 80%;
 		margin: auto;
+		position: relative;
 		.title{
 			width: 100%;
 			text-align: center;
 			font-size: 28px;
-			margin-top: 15px;
+			margin-top: 32px;
 		}
-		.chart{
-			margin-top: 20px;
+		.chart-title{
+			background-color: $blue;
+			color: white;
+			display: inline-block;
+			width: 100px;
+			height: 40px;
+			line-height: 40px;
+			text-align: center;
+			margin-top: 50px;
 		}
-		@media screen and (max-width: 767px){
+		.v-chart{
 			width: 100%;
+			.highcharts-range-selector-buttons,
+			.highcharts-input-group{
+				display: none;
+			}
+		}
+		@media screen and (max-width: 768px){
+			width: 90%;
 		}
 	}
 }

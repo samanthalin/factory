@@ -105,25 +105,32 @@ table, tr, td {
 
 .motor-data {
   font-family: 'Noto Sans TC', sans-serif; }
-  .motor-data .home {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    color: black;
-    font-size: 24px; }
   .motor-data .container {
     width: 80%;
-    margin: auto; }
+    margin: auto;
+    position: relative; }
     .motor-data .container .title {
       width: 100%;
       text-align: center;
       font-size: 28px;
-      margin-top: 15px; }
-    .motor-data .container .chart {
-      margin-top: 20px; }
-    @media screen and (max-width: 767px) {
+      margin-top: 32px; }
+    .motor-data .container .chart-title {
+      background-color: #2b79a9;
+      color: white;
+      display: inline-block;
+      width: 100px;
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+      margin-top: 50px; }
+    .motor-data .container .v-chart {
+      width: 100%; }
+      .motor-data .container .v-chart .highcharts-range-selector-buttons,
+      .motor-data .container .v-chart .highcharts-input-group {
+        display: none; }
+    @media screen and (max-width: 768px) {
       .motor-data .container {
-        width: 100%; } }
+        width: 90%; } }
 
 .ambient-data {
   font-family: 'Helvetica'; }
