@@ -69,12 +69,12 @@ $(document).ready(function() {
 
     function getWsnHistory(date, mote) {
         var url = 'https://blahdns-proxy-eusudefuvv.now.sh/http://140.124.184.204:8080/Cloud/WSN/queryDate?epoch='+date+'&mote='+mote
+        console.log(url)
         $.getJSON(url, function(data) {
             // Create the chart
             var reData = data.map(value => {
-                    var timeStamp = moment(value.timeStamp).format('YYYY-MM-DD HH:mm:ss') //.format('x')
+                    var timeStamp = moment(value.timeStamp).format('YYYYMMDD-HH:mm:ss') //.format('x')
                     var temperature = Math.round(value.temperature*100)/100
-                    console.log(timeStamp)
                     return [timeStamp, temperature]
                 }).reverse()
                 //console.warn(reData);
@@ -108,7 +108,4 @@ $(document).ready(function() {
 
         });
     }
-//http://140.124.184.204:8080/Cloud/WSN/queryDate?epoch=1501564989000&mote=bbbb::12:4b00:615:a72a
-
-
 });
