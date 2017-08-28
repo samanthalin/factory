@@ -8,14 +8,11 @@
 	<link rel="stylesheet" href="style.css">
 	<link rel="stylesheet" href="font/css/font-awesome.min.css">
 	<link rel="stylesheet" href="loding/grasp_mobile_progress_circle-1.0.0.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.2/vue.min.js"></script>
 	<script src="jquery-3.2.1.min.js"></script>
 	<script src="loding/grasp_mobile_progress_circle-1.0.0.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
 	<!-- <script src="jquery.pagination.js"></script> -->
-	<!-- start / webb -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.2/vue.min.js"></script>
-	<!-- end / webb -->
 	<script src="warning.js"></script>
 	<script src="style.js"></script>
 </head>
@@ -32,14 +29,14 @@
 			<div class="title">異常紀錄</div>
 			<form>
 		       <fieldset>
-		          
-		          <span>
+		         <div class="control"> 
+		          <span class="dropdown">
 		             <select v-on:change="greet" id = "select_cat">
 		               <option value = "WSNalarm">環境異常</option>
 		               <option value = "Iotivityalarm">馬達異常</option>
 		             </select>
 		          </span>
-		          <span>
+		          <span class="dropdown">
 		             <select v-on:change="greet" id = "select_time">
 		               <option value = "today">今日異常資料</option>
 		               <option value = "pickday">選擇其他日期</option>
@@ -49,8 +46,7 @@
 		          	<input type="date" name="bday">
 		          </span>
 		          <button v-on:click="greet" id="get_button">確定</button>
-		          <!-- <a href="#" class="select_wsn">環境異常</a>
-		          <a href="#" class="select_motor">馬達異常</a> -->	
+				</div>
 					
 					<div id="alarmTable">
 						<li v-if="type === 'WSNalarm'" v-for="(item, index) in items">
@@ -72,7 +68,7 @@
 		</div><!-- container -->
 		<footer>
 			<div id="page_buttons">
-				<sapn class="page_btn" v-on:click="greet(page)" v-for="(page, index) in pages">{{page}}</span>
+				<span class="page_btn" v-on:click="greet(page)" v-for="(page, index) in pages">{{page}}</span>
 			</div>
 		</footer>
 	</div>

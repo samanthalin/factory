@@ -1,7 +1,3 @@
-@import url(http://fonts.googleapis.com/earlyaccess/notosanstc.css);
-@import url(https://fonts.googleapis.com/css?family=Work+Sans:400,800,900);
-@import url(https://fonts.googleapis.com/css?family=PT+Sans:400,700);
-@import url(https://fonts.googleapis.com/css?family=Duru+Sans);
 @import url(animate.css);
 /*reset*/
 h1, h2, h3, h4, h5, p {
@@ -164,6 +160,8 @@ table, tr, td {
         @media screen and (max-width: 890px) {
           .ambient-data .container .map .sensor {
             transform: rotate(90deg); } }
+      .ambient-data .container .map .warning {
+        background-color: #b93f4d; }
       .ambient-data .container .map #a647 {
         margin-left: 178px;
         margin-top: -315px; }
@@ -338,19 +336,82 @@ table, tr, td {
       width: 100%;
       text-align: center;
       font-size: 28px;
-      margin-top: 15px; }
+      margin-top: 32px; }
     .warning-data .container form {
       margin-top: 20px; }
-      .warning-data .container form fieldset #alarmTable li:nth-child(odd) {
-        background-color: #d6d6d6; }
+      .warning-data .container form fieldset {
+        padding: 0;
+        border: none;
+        vertical-align: middle; }
+        .warning-data .container form fieldset .control {
+          min-height: 75px;
+          display: flex;
+          justify-content: center;
+          align-items: center; }
+          .warning-data .container form fieldset .control span, .warning-data .container form fieldset .control .button {
+            margin: 5px; }
+          .warning-data .container form fieldset .control .dropdown {
+            position: relative; }
+            .warning-data .container form fieldset .control .dropdown #select_cat, .warning-data .container form fieldset .control .dropdown #select_time {
+              font-size: 16px;
+              width: 120px;
+              height: 32px;
+              background: none;
+              -webkit-appearance: none;
+              -webkit-border-radius: 0px;
+              padding-left: 10px; }
+            .warning-data .container form fieldset .control .dropdown #select_time {
+              width: 150px; }
+            .warning-data .container form fieldset .control .dropdown:after {
+              font-family: 'fontAwesome';
+              content: '\f0d7';
+              color: #2b79a9;
+              position: absolute;
+              right: 4px;
+              top: 10px; }
+          .warning-data .container form fieldset .control #get_button {
+            font-size: 16px;
+            width: 80px;
+            height: 32px;
+            background: none;
+            -webkit-appearance: none;
+            -webkit-border-radius: 0px;
+            padding-left: 10px;
+            border: none;
+            border: 1px solid #2b79a9; }
+            .warning-data .container form fieldset .control #get_button:hover {
+              background-color: #2b79a9;
+              color: white; }
+              .warning-data .container form fieldset .control #get_button:hover:active {
+                margin-top: 1px; }
+            .warning-data .container form fieldset .control #get_button:focus {
+              outline: 0; }
+        .warning-data .container form fieldset #alarmTable li {
+          min-height: 25px;
+          display: flex;
+          align-items: center;
+          padding: 10px 20px;
+          border-bottom: 1px dashed #bcbcbc; }
+        .warning-data .container form fieldset #alarmTable li:nth-child(odd) {
+          background-color: #e9e8ea; }
   .warning-data footer {
-    text-align: center; }
+    text-align: center;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
     .warning-data footer #page_buttons .page_btn {
       color: black;
-      border: 1px solid black;
-      cursor: pointer; }
+      cursor: pointer;
+      background-color: #CFF5FF;
+      width: 35px;
+      height: 35px;
+      display: inline-block;
+      line-height: 35px;
+      border: 2px solid white; }
     .warning-data footer #page_buttons .active {
-      background-color: yellow; }
+      background-color: #2b79a9;
+      color: white; }
 
 .history {
   font-family: 'Helvetica'; }

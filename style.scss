@@ -1,8 +1,8 @@
 @charset "UTF-8";
-@import url(http://fonts.googleapis.com/earlyaccess/notosanstc.css);
-@import url(https://fonts.googleapis.com/css?family=Work+Sans:400,800,900);
-@import url(https://fonts.googleapis.com/css?family=PT+Sans:400,700);
-@import url(https://fonts.googleapis.com/css?family=Duru+Sans);
+// @import url(http://fonts.googleapis.com/earlyaccess/notosanstc.css);
+// @import url(https://fonts.googleapis.com/css?family=Work+Sans:400,800,900);
+// @import url(https://fonts.googleapis.com/css?family=PT+Sans:400,700);
+// @import url(https://fonts.googleapis.com/css?family=Duru+Sans);
 @import url(animate.css);
 
 /*reset*/
@@ -194,6 +194,9 @@ $blue: #2b79a9;
 					transform: rotate(90deg);
 				}
 			}//sensor
+			.warning { 
+			background-color: #b93f4d;
+			}
 			#a647{ margin-left: 178px; margin-top: -315px;}
 			#a6de{margin-left: 178px; margin-top: -240px;}
 			#a72a{margin-left: 178px; margin-top: -165px;}
@@ -362,14 +365,78 @@ $blue: #2b79a9;
 			width: 100%;
 			text-align: center;
 			font-size: 28px;
-			margin-top: 15px;
+			margin-top: 32px;
+
 		}
 		form{
 			margin-top: 20px;
 			fieldset{
+				padding: 0;
+				border: none;
+				vertical-align: middle;
+				.control{
+					min-height: 75px;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					span, .button{
+						margin: 5px;
+					}
+					.dropdown{
+						position: relative;
+						#select_cat, #select_time{
+							font-size: 16px;
+						    width: 120px;
+						    height: 32px;
+						    background: none;
+						    -webkit-appearance: none;
+						    -webkit-border-radius: 0px;
+						    padding-left: 10px;
+						}
+						#select_time{
+							width: 150px;
+						}
+						&:after{
+					    	font-family: 'fontAwesome';
+						    content: '\f0d7';
+						    color: $blue;
+						    position: absolute;
+						    right: 4px;
+						    top: 10px;
+					    }
+					}
+					#get_button{
+						font-size: 16px;
+					    width: 80px;
+					    height: 32px;
+					    background: none;
+					    -webkit-appearance: none;
+					    -webkit-border-radius: 0px;
+					    padding-left: 10px;
+					    border: none;
+					    border: 1px solid $blue;
+					    &:hover{
+					    	background-color: $blue;
+					    	color: white;
+					    	&:active{
+					    		margin-top: 1px;
+					    	}
+					    }
+					    &:focus{
+					    	outline: 0;
+					    }
+					}
+				}
 				#alarmTable{
+					li{
+						min-height: 25px;
+						display: flex;
+						align-items: center;
+						padding: 10px 20px;
+						border-bottom: 1px dashed #bcbcbc;
+					}
 					li:nth-child(odd){
-						background-color: #d6d6d6;
+						background-color: #e9e8ea;
 					}
 				}
 			}
@@ -377,14 +444,24 @@ $blue: #2b79a9;
 	}
 	footer{
 		text-align: center;
+		min-height: 100px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 		#page_buttons{
 			.page_btn{
 				color: black;
-				border: 1px solid black;
 				cursor: pointer;
+				background-color: #CFF5FF;
+				width: 35px;
+				height: 35px;
+				display: inline-block;
+				line-height: 35px;
+				border: 2px solid white;
 			}
 			.active{
-				background-color: yellow;
+				background-color: $blue;
+				color: white;
 			}
 		}
 	}
@@ -426,7 +503,6 @@ $blue: #2b79a9;
 		margin-top: calc(50vh - 24px);
 	}
 }
-
 
 
 

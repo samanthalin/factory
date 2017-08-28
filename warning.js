@@ -132,6 +132,7 @@ $(document).ready(function(){
         event.preventDefault()
         fetchAlarmCount(alarmType, date)
         fetchAlarmData(alarmType, date)
+
       }
     }
   })
@@ -148,6 +149,7 @@ $(document).ready(function(){
         // event.preventDefault()
         fetchAlarmCount(alarmType, date)
         fetchAlarmData(alarmType, date)
+        
       }
     }
   })  
