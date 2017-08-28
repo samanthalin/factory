@@ -392,6 +392,10 @@ $blue: #2b79a9;
 						    -webkit-appearance: none;
 						    -webkit-border-radius: 0px;
 						    padding-left: 10px;
+						    border-color: $blue;
+						    &:focus{
+						    	outline: 0;
+						    }
 						}
 						#select_time{
 							width: 150px;
@@ -401,7 +405,7 @@ $blue: #2b79a9;
 						    content: '\f0d7';
 						    color: $blue;
 						    position: absolute;
-						    right: 4px;
+						    right: 6px;
 						    top: 10px;
 					    }
 					}

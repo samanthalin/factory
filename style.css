@@ -359,7 +359,10 @@ table, tr, td {
               background: none;
               -webkit-appearance: none;
               -webkit-border-radius: 0px;
-              padding-left: 10px; }
+              padding-left: 10px;
+              border-color: #2b79a9; }
+              .warning-data .container form fieldset .control .dropdown #select_cat:focus, .warning-data .container form fieldset .control .dropdown #select_time:focus {
+                outline: 0; }
             .warning-data .container form fieldset .control .dropdown #select_time {
               width: 150px; }
             .warning-data .container form fieldset .control .dropdown:after {
@@ -367,7 +370,7 @@ table, tr, td {
               content: '\f0d7';
               color: #2b79a9;
               position: absolute;
-              right: 4px;
+              right: 6px;
               top: 10px; }
           .warning-data .container form fieldset .control #get_button {
             font-size: 16px;

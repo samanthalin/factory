@@ -50,7 +50,7 @@
 					
 					<div id="alarmTable">
 						<li v-if="type === 'WSNalarm'" v-for="(item, index) in items">
-							{{item.idx}}.  Time: {{item.time}}  溫度感測器 {{item.moto}} {{item.msg}}({{item.temperature}} &#8451;)
+							{{item.idx}}. &nbsp; Time: {{item.time}} &nbsp;&nbsp;溫度感測器 : {{item.moto}} &nbsp;&nbsp;{{item.msg}} ({{item.temperature}} &#8451;)
 						</li>
 						<li v-if="type === 'Iotivityalarm'" v-for="(item, index) in items">
 							{{item.idx}}. Time: {{item.time}}  {{item.msg}}

@@ -26,7 +26,7 @@ $(document).ready(function(){
                 idx: 100 * (page - 1) + index + 1,
                 time: moment(item.timeStamp*1000).format('YYYY/MM/DD HH:mm:ss'),
                 moto: String(item.mote),
-                temperature: String(item.temperature),
+                temperature: Math.round(item.temperature * 100) /100,
                 msg: item.message
               }
             })
