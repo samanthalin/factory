@@ -73,11 +73,11 @@ $(document).ready(function() {
         $.getJSON(url, function(data) {
             // Create the chart
             var reData = data.map(value => {
-                    var timeStamp = moment(value.timeStamp).format('YYYYMMDD-HH:mm:ss') //.format('x')
+                    var timeStamp = moment(value.timeStamp * 1000).valueOf()
                     var temperature = Math.round(value.temperature*100)/100
                     return [timeStamp, temperature]
-                }).reverse()
-                //console.warn(reData);
+                })
+                // console.warn(reData);
             Highcharts.setOptions({
                 global: {
                     useUTC: false
