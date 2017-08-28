@@ -350,6 +350,9 @@ table, tr, td {
           align-items: center; }
           .warning-data .container form fieldset .control span, .warning-data .container form fieldset .control .button {
             margin: 5px; }
+            @media screen and (max-width: 640px) {
+              .warning-data .container form fieldset .control span, .warning-data .container form fieldset .control .button {
+                margin-top: 10px; } }
           .warning-data .container form fieldset .control .dropdown {
             position: relative; }
             .warning-data .container form fieldset .control .dropdown #select_cat, .warning-data .container form fieldset .control .dropdown #select_time {
@@ -372,6 +375,15 @@ table, tr, td {
               position: absolute;
               right: 6px;
               top: 10px; }
+              @media screen and (max-width: 640px) {
+                .warning-data .container form fieldset .control .dropdown:after {
+                  top: 0;
+                  right: 10px; } }
+          .warning-data .container form fieldset .control #datepicker input[type="date"] {
+            height: 32px;
+            border: 1px solid #2b79a9;
+            padding-left: 10px;
+            font-size: 15px; }
           .warning-data .container form fieldset .control #get_button {
             font-size: 16px;
             width: 80px;
@@ -379,7 +391,7 @@ table, tr, td {
             background: none;
             -webkit-appearance: none;
             -webkit-border-radius: 0px;
-            padding-left: 10px;
+            padding-left: 7px;
             border: none;
             border: 1px solid #2b79a9; }
             .warning-data .container form fieldset .control #get_button:hover {
@@ -389,12 +401,22 @@ table, tr, td {
                 margin-top: 1px; }
             .warning-data .container form fieldset .control #get_button:focus {
               outline: 0; }
+          @media screen and (max-width: 640px) {
+            .warning-data .container form fieldset .control {
+              display: inline-block;
+              text-align: center;
+              width: 100%; }
+              .warning-data .container form fieldset .control select, .warning-data .container form fieldset .control input, .warning-data .container form fieldset .control button {
+                margin-bottom: 10px; } }
         .warning-data .container form fieldset #alarmTable li {
           min-height: 25px;
           display: flex;
           align-items: center;
           padding: 10px 20px;
           border-bottom: 1px dashed #bcbcbc; }
+          @media screen and (max-width: 640px) {
+            .warning-data .container form fieldset #alarmTable li {
+              padding: 10px; } }
         .warning-data .container form fieldset #alarmTable li:nth-child(odd) {
           background-color: #e9e8ea; }
   .warning-data footer {
@@ -402,19 +424,54 @@ table, tr, td {
     min-height: 100px;
     display: flex;
     align-items: center;
-    justify-content: center; }
+    justify-content: center;
+    padding: 5%; }
     .warning-data footer #page_buttons .page_btn {
-      color: black;
+      color: #2b79a9;
       cursor: pointer;
-      background-color: #CFF5FF;
       width: 35px;
       height: 35px;
       display: inline-block;
       line-height: 35px;
-      border: 2px solid white; }
+      margin: 2px;
+      border: 1px solid #2b79a9; }
+      .warning-data footer #page_buttons .page_btn:hover {
+        background-color: #2b79a9;
+        color: white; }
     .warning-data footer #page_buttons .active {
       background-color: #2b79a9;
       color: white; }
+  .warning-data .scroll-to-top {
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    font-weight: bold;
+    text-decoration: none;
+    position: fixed;
+    bottom: 150px;
+    right: 20px;
+    display: none;
+    z-index: 2000;
+    background-color: #2b79a9;
+    transition: transform 0.3s;
+    overflow: hidden; }
+    .warning-data .scroll-to-top:before, .warning-data .scroll-to-top:after {
+      content: '';
+      position: absolute;
+      display: block;
+      top: 15px;
+      background-color: #fff;
+      height: 20px;
+      width: 5px; }
+    .warning-data .scroll-to-top:before {
+      transform: rotate(-45deg);
+      left: 28px;
+      box-shadow: -8px 14px 0px 8px #236288; }
+    .warning-data .scroll-to-top:after {
+      transform: rotate(45deg);
+      right: 28px; }
+    .warning-data .scroll-to-top:focus {
+      outline: none; }
 
 .history {
   font-family: 'Helvetica'; }

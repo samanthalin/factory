@@ -7,16 +7,14 @@
 	<title>Smart Factory</title>
 	<link rel="stylesheet" href="style.css">
 	<link rel="stylesheet" href="font/css/font-awesome.min.css">
-	<link rel="stylesheet" href="loding/grasp_mobile_progress_circle-1.0.0.min.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.2/vue.min.js"></script>
-	<script src="jquery-3.2.1.min.js"></script>
-	<script src="loding/grasp_mobile_progress_circle-1.0.0.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
-	<!-- <script src="jquery.pagination.js"></script> -->
+	<script src="./jquery-3.2.1.min.js"></script>
+	<script src="./moment.min.js"></script>
 	<script src="warning.js"></script>
 	<script src="style.js"></script>
 </head>
 <body class="warning-data">
+
 	<div id="app">
 
 		<a href="index.html" class="home_btn">
@@ -29,7 +27,7 @@
 			<div class="title">異常紀錄</div>
 			<form>
 		       <fieldset>
-		         <div class="control"> 
+		        <div class="control"> 
 		          <span class="dropdown">
 		             <select v-on:change="greet" id = "select_cat">
 		               <option value = "WSNalarm">環境異常</option>
@@ -45,8 +43,9 @@
 		          <span v-if="dateType === 'pickday'" v-on:change="greet" id="datepicker">
 		          	<input type="date" name="bday">
 		          </span>
+
 		          <button v-on:click="greet" id="get_button">確定</button>
-				</div>
+				</div><!-- control -->
 					
 					<div id="alarmTable">
 						<li v-if="type === 'WSNalarm'" v-for="(item, index) in items">
@@ -55,14 +54,7 @@
 						<li v-if="type === 'Iotivityalarm'" v-for="(item, index) in items">
 							{{item.idx}}. Time: {{item.time}}  {{item.msg}}
 						</li>
-
-					</div>		
-					<!-- <div id="motorAlarm" ></div> -->
-
-					<!-- <div class="data_list wsnAlarm">
-						<iframe src="" frameborder="0"></iframe>
-					</div> -->
-
+					</div><!-- alarmTable -->
 		       </fieldset>
 		    </form>
 		</div><!-- container -->
@@ -71,6 +63,7 @@
 				<span class="page_btn" v-on:click="greet(page)" v-for="(page, index) in pages">{{page}}</span>
 			</div>
 		</footer>
+		<a href='#' class='scroll-to-top'></a>
 	</div>
 </body>
 </html>
