@@ -11,7 +11,7 @@
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 	<script src="jquery-3.2.1.min.js"></script>
 	<script src="loding/grasp_mobile_progress_circle-1.0.0.min.js"></script>
-	<script src="moment.min.js"></script>
+	<script src="./moment.min.js"></script>
 	<script src="https://code.highcharts.com/stock/highstock.js"></script>
 	<script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
 
@@ -26,13 +26,38 @@
 
 	<div class="container">
 		<div class="title">歷史紀錄</div>
-		<input type="date" value="" id="date">
-		<input type="time" value="" step="1" id="time">
-		<button type="button" id="getData">Get</button>
 		
-		<div id="showData">
-			
+		<div class="motor-history">
+			<div class="sub-title">馬達歷史資料</div>
+			<input type="date" value="" id="date">
+			<input type="time" value="" step="1" id="time">
+			<button type="button" id="getData">確定</button>
+			<div id="showData"></div>
 		</div>
+
+		<div class="wsn-history">
+			<div class="sub-title">WSN歷史資料</div>
+			<span class="dropdown">
+				<select name="" id="select_wsn">
+					<option value="bbbb::12:4b00:615:a72a">A72A</option>
+					<option value="bbbb::12:4b00:615:a6de">A6DE</option>
+					<option value="bbbb::12:4b00:615:a664">A664</option>
+					<option value="bbbb::12:4b00:615:a6af">A6AF</option>
+					<option value="bbbb::12:4b00:615:a64f">A64F</option>
+					<option value="bbbb::12:4b00:615:a647">A647</option>
+					<option value="bbbb::12:4b00:615:a6e2">A6E2</option>
+					<option value="bbbb::12:4b00:615:a6fb">A6FB</option>
+					<option value="bbbb::12:4b00:615:a6f6">A6F6</option>
+					<option value="bbbb::12:4b00:615:a646">A646</option>
+					<option value="bbbb::12:4b00:615:a70e">A70E</option>
+				</select>
+			</span>
+			<input type="date" id="date-w">
+			<button type="button" id="getWsn">確定</button>
+			<div id="showWsn"></div>
+		</div>
+			
+
 	</div>
 <script>
     
