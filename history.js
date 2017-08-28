@@ -63,7 +63,6 @@ $(document).ready(function() {
         var date = $('#date-w').val();
         var convertedDate = moment(date, 'YYYY-MM-DD').format('x')
         var mote = $('#select_wsn').val()
-
         getWsnHistory(convertedDate, mote)
     }
 
