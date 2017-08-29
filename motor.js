@@ -28,7 +28,7 @@ $(document).ready(function() {
             idx = idx + x;
           })
           var ts = Date.UTC(temp[0],temp[1]-1,temp[2],temp[3]-8,temp[4],temp[5],temp[6]),
-              val = Math.abs(parseFloat(freq.voltage[0].sensorValue.toFixed(3)));
+              val = parseFloat(freq.voltage[0].sensorValue.toFixed(3));
           tempdata.push([ts, val]);
         }
         return tempdata;
