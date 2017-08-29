@@ -4,7 +4,7 @@ $(document).ready(function(){
 	
 
 	var fetchWsnNews = () => {
-		var url = "https://blahdns-proxy-eusudefuvv.now.sh/http://140.124.184.204:8080/Cloud/WSN/NewestData";
+		var url = "https://blahdns.herokuapp.com/http://140.124.184.204:8080/Cloud/WSN/NewestData";
 		return fetch(url).then(resp => resp.json()).then(function(wsn_news) {
 			// console.log(wsn_news);
 			appendWsnNews(wsn_news);

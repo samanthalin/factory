@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-    var url = "https://blahdns-proxy-eusudefuvv.now.sh/http://140.124.184.204:8080/Cloud/Iotivity/QueryAll",
+    var url = "https://blahdns.herokuapp.com/http://140.124.184.204:8080/Cloud/Iotivity/QueryAll",
         container = $("#container"),
         voltage = [];
     $.ajax({
@@ -25,7 +25,9 @@ $(document).ready(function() {
                 idx = 0;
             dFormat.map(function(x, y) {
                 temp = temp + timestamp.substr(idx, x) + spacer[y];
+                //console.log(temp)
                 idx = idx + x;
+                //console.log(idx)
             })
             var ts = new Date(temp).getTime(),
                 val = Math.abs(parseFloat(freq.voltage[0].sensorValue.toFixed(3)));
