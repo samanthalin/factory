@@ -9,7 +9,7 @@ $(document).ready(function() {
         var convertedTime = moment(dateTime, 'YYYY-MM-DD hh:mm:ss').format('x')
             // convertedTime = convertedTime/1000
 
-        //console.log('OrginTime:' + dateTime + 'ConvertedTime:' + convertedTime);
+        console.log('OrginTime:' + dateTime + 'ConvertedTime:' + convertedTime);
         getMotorHistory(convertedTime)
     }
 
@@ -23,7 +23,7 @@ $(document).ready(function() {
                 var val = value.voltage['0']['sensorValue']
                 return [timeStamp, Math.abs(val)]
             }).reverse()
-            //console.warn(reData);
+            console.warn(reData);
             Highcharts.setOptions({
                 global: {
                     useUTC: false
@@ -76,7 +76,7 @@ $(document).ready(function() {
                     var temperature = Math.round(value.temperature*100)/100
                     return [timeStamp, temperature]
                 })
-                // console.warn(reData);
+                console.warn(reData);
             Highcharts.setOptions({
                 global: {
                     useUTC: false

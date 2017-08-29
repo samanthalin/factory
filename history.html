@@ -9,11 +9,12 @@
 	<link rel="stylesheet" href="font/css/font-awesome.min.css">
 	<link rel="stylesheet" href="loding/grasp_mobile_progress_circle-1.0.0.min.css">
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	
 	<script src="jquery-3.2.1.min.js"></script>
-	<script src="loding/grasp_mobile_progress_circle-1.0.0.min.js"></script>
 	<script src="./moment.min.js"></script>
 	<script src="https://code.highcharts.com/stock/highstock.js"></script>
 	<script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 	<script src="history.js"></script>
 
@@ -29,8 +30,8 @@
 		
 		<div class="motor-history">
 			<div class="sub-title">馬達歷史資料</div>
-			<input type="date" value="" id="date">
-			<input type="time" value="" step="1" id="time">
+			<input type="text" value="" id="date">
+			<input type="text" value="" id="time">
 			<button type="button" id="getData">確定</button>
 			<div id="showData"></div>
 		</div>
@@ -55,13 +56,14 @@
 			<input type="date" id="date-w">
 			<button type="button" id="getWsn">確定</button>
 			<div id="showWsn"></div>
-		</div>
-			
-
-	</div>
-<script>
-    
-  </script>
+		</div><!-- wsn-history -->
+	</div><!-- container -->
+	<script>
+    	$( function() {
+		    $( "#date" ).datepicker();
+		    $( "#time" ).datepicker();
+	  	} );
+  	</script>
 	
 
 </body>
