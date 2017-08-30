@@ -1,10 +1,8 @@
 @charset "UTF-8";
-@import url(http://fonts.googleapis.com/earlyaccess/notosanstc.css);
+//@import url(http://fonts.googleapis.com/earlyaccess/notosanstc.css);
 // @import url(https://fonts.googleapis.com/css?family=Work+Sans:400,800,900);
 // @import url(https://fonts.googleapis.com/css?family=PT+Sans:400,700);
 // @import url(https://fonts.googleapis.com/css?family=Duru+Sans);
-@import url(https://code.ionicframework.com/1.1.0/css/ionic.css);
-@import url(https://cdn.rawgit.com/katemihalikova/ion-datetime-picker/87e8e37f2a48e2e6d5e4392f3821e59da605296a/release/ion-datetime-picker.min.css);
 @import url(animate.css);
 
 /*reset*/
@@ -529,7 +527,7 @@ $blue: #2b79a9;
 		z-index: 2000;
 		background-color: $blue;
 		transition: transform 0.3s;
-		// overflow: hidden;
+		overflow: hidden;
 
 		&:before,
 		&:after {

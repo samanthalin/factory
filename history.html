@@ -7,6 +7,8 @@
 	<title>Smart Factory</title>
 	<link rel="stylesheet" href="style.css">
 	<link rel="stylesheet" href="font/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://code.ionicframework.com/1.1.0/css/ionic.css">
+	<link rel="stylesheet" href="https://cdn.rawgit.com/katemihalikova/ion-datetime-picker/87e8e37f2a48e2e6d5e4392f3821e59da605296a/release/ion-datetime-picker.min.css">
 	<!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
 	<link href="https://code.ionicframework.com/1.1.0/css/ionic.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdn.rawgit.com/katemihalikova/ion-datetime-picker/87e8e37f2a48e2e6d5e4392f3821e59da605296a/release/ion-datetime-picker.min.css">
@@ -36,8 +38,8 @@
 			<div class="sub-title">
 				<span>馬達歷史資料</span>
 			</div>
-			<div class="item" ion-datetime-picker seconds am-pm ng-model="datetimeValue">
-				{{datetimeValue| date: "yyyy-MM-dd h:mm:ss a"}}
+			<div class="item" ion-datetime-picker seconds am-pm ng-model="datetimeValue" only-valid="{'after': '2017-08-22'}">
+				{{datetimeValue|date: "yyyy-MM-dd h:mm:ss a"}}
 			</div>
 			<button type="button" id="getData">畫圖</button>
 			<div id="showData"></div>
@@ -62,7 +64,10 @@
 					<option value="bbbb::12:4b00:615:a70e">A70E</option>
 				</select>
 			</span>
-			<div class="item" ion-datetime-picker date ng-model="datetimeValue2" >
+			<div class="item" ion-datetime-picker date ng-model="datetimeValue" 
+			only-valid="[{'outside': {'initial': '2017-08-03', 'final': '2017-08-15'}}, 
+						 {'outside': {'initial': '2017-08-17', 'final': '2017-08-22'}}, 
+						 {'outside': {'initial': '2017-08-24', 'final': '2017-08-29'}}]">
 				{{datetimeValue| date: "yyyy-MM-dd"}}
 			</div>
 			<button type="button" id="getWsn">畫圖</button>
