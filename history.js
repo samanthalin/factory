@@ -1,5 +1,5 @@
 angular.module("myApp", ["ionic", "ion-datetime-picker"]);
-angular.module("myApp2", ["ionic", "ion-datetime-picker2"]);
+//angular.module("myApp2", ["ionic", "ion-datetime-picker2"]);
 
 $(document).ready(function() {
 

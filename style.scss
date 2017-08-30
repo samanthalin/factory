@@ -51,7 +51,14 @@ table, tr, td {
 /*reset end */
 
 $blue: #2b79a9;
-
+.home_btn{
+	position: absolute;
+	left: 25px;
+	top: 25px;
+	font-size: 24px;
+	color: $blue;
+	z-index: 9999;
+}
 .index{
 	box-sizing: border-box;
 	// overflow: hidden;
@@ -555,6 +562,9 @@ $blue: #2b79a9;
 .history-data{
 	font-family: 'Helvetica';
 	overflow-y:scroll !important; 
+	.home_btn{
+		top: -10px;
+	}
 	.container{
 		width: 80%;
 		margin: auto;
@@ -636,14 +646,7 @@ $blue: #2b79a9;
 	}//container
 }//history
 
-.home_btn{
-	position: absolute;
-	left: 25px;
-	top: 25px;
-	font-size: 24px;
-	color: $blue;
-	z-index: 9999;
-}
+
 
 #preloader{
 	position: fixed;
@@ -659,8 +662,6 @@ $blue: #2b79a9;
 		margin-top: calc(50vh - 24px);
 	}
 }
-
-
 
 
 

@@ -8,6 +8,8 @@
 	<link rel="stylesheet" href="style.css">
 	<link rel="stylesheet" href="font/css/font-awesome.min.css">
 	<!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
+	<link href="https://code.ionicframework.com/1.1.0/css/ionic.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.rawgit.com/katemihalikova/ion-datetime-picker/87e8e37f2a48e2e6d5e4392f3821e59da605296a/release/ion-datetime-picker.min.css">
 
 	<script src="https://code.ionicframework.com/1.1.0/js/ionic.bundle.js"></script>
 	<script src="https://rawgit.com/katemihalikova/ion-datetime-picker/master/release/ion-datetime-picker.min.js"></script>
@@ -20,29 +22,28 @@
 	<script src="history.js"></script>
 
 </head>
-<body class="history-data">
-	 
+<body class="history-data" ng-app="myApp">
+	<ion-content>
 	<a href="index.html" class="home_btn">
 		<i i class="fa fa-th-large" aria-hidden="true"></i>
 	</a>
-
+	
 	<div class="container">
+	
 		<div class="title">歷史紀錄</div>
 		
 		<div class="motor-history" ng-app="myApp">
 			<div class="sub-title">
 				<span>馬達歷史資料</span>
 			</div>
-			
 			<div class="item" ion-datetime-picker seconds am-pm ng-model="datetimeValue">
 				{{datetimeValue| date: "yyyy-MM-dd h:mm:ss a"}}
 			</div>
-			
 			<button type="button" id="getData">畫圖</button>
 			<div id="showData"></div>
 		</div>
 
-		<div class="wsn-history" ng-app="myApp2">
+		<div class="wsn-history">
 			<div class="sub-title">
 				<span>WSN歷史資料</span>
 			</div>
@@ -61,12 +62,13 @@
 					<option value="bbbb::12:4b00:615:a70e">A70E</option>
 				</select>
 			</span>
-			<div class="item" ion-datetime-picker2 date ng-model="datetimeValue2" >
-				{{datetimeValue2| date: "yyyy-MM-dd"}}
+			<div class="item" ion-datetime-picker date ng-model="datetimeValue2" >
+				{{datetimeValue| date: "yyyy-MM-dd"}}
 			</div>
 			<button type="button" id="getWsn">畫圖</button>
 			<div id="showWsn"></div>
 		</div><!-- wsn-history -->
+	</ion-content>
 	</div><!-- container -->
 	<!-- <script>
     	$( function() {
