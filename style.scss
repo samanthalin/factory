@@ -1,8 +1,10 @@
 @charset "UTF-8";
-// @import url(http://fonts.googleapis.com/earlyaccess/notosanstc.css);
+@import url(http://fonts.googleapis.com/earlyaccess/notosanstc.css);
 // @import url(https://fonts.googleapis.com/css?family=Work+Sans:400,800,900);
 // @import url(https://fonts.googleapis.com/css?family=PT+Sans:400,700);
 // @import url(https://fonts.googleapis.com/css?family=Duru+Sans);
+@import url(https://code.ionicframework.com/1.1.0/css/ionic.css);
+@import url(https://cdn.rawgit.com/katemihalikova/ion-datetime-picker/87e8e37f2a48e2e6d5e4392f3821e59da605296a/release/ion-datetime-picker.min.css);
 @import url(animate.css);
 
 /*reset*/
@@ -52,7 +54,7 @@ $blue: #2b79a9;
 
 .index{
 	box-sizing: border-box;
-	overflow: hidden;
+	// overflow: hidden;
 	font-family: 'Noto Sans TC', sans-serif;
 	background-color: black;
 	.container{
@@ -165,7 +167,7 @@ $blue: #2b79a9;
 }
 
 .ambient-data{
-	font-family: 'Helvetica';
+	font-family: 'Noto Sans TC', sans-serif;
 	.home_btn{
 		position: fixed;
 		z-index: 999;
@@ -374,7 +376,6 @@ $blue: #2b79a9;
 			text-align: center;
 			font-size: 28px;
 			margin-top: 32px;
-
 		}
 		form{
 			margin-top: 20px;
@@ -521,7 +522,7 @@ $blue: #2b79a9;
 		z-index: 2000;
 		background-color: $blue;
 		transition: transform 0.3s;
-		overflow: hidden;
+		// overflow: hidden;
 
 		&:before,
 		&:after {
@@ -551,8 +552,9 @@ $blue: #2b79a9;
 	}
 }
 
-.history{
+.history-data{
 	font-family: 'Helvetica';
+	overflow-y:scroll !important; 
 	.container{
 		width: 80%;
 		margin: auto;
@@ -560,10 +562,79 @@ $blue: #2b79a9;
 			width: 100%;
 			text-align: center;
 			font-size: 28px;
-			margin-top: 15px;
+			margin-top: 32px;
+			line-height: 28px;
 		}
-	}
-}
+		.motor-history, .wsn-history{
+			.sub-title{
+				span{
+					background-color: $blue;
+					color: white;
+					width: 128px;
+					height: 40px;
+					line-height: 40px;
+					text-align: center;
+					margin-top: 50px;
+					font-size: 16px;
+					padding: 0 10px;
+					display: block;
+				}
+			}//sub-title
+			.item, select{
+				width: 218px;
+				padding: 7px 5px 5px 12px;
+				min-height: 34px;
+				border: 1px solid $blue;
+				// display: inline-block;
+				float: left;
+				cursor: pointer;
+				margin-top: 12px;
+				&:after{
+					font-family: 'fontAwesome';
+					content: "\f073";
+					color: $blue;
+					right: 8px;
+    				position: absolute;
+				}
+			}//item
+			button{
+				float: left;
+				border: none;
+				background-color: white;
+				margin-top: 12px;
+				border: 1px solid $blue;
+				height: 34px;
+				padding: 0;
+				text-align: top;
+				padding: 0 10px;
+				color: $blue;
+				&:hover, &:active{
+					background-color: $blue;
+					color: white;
+				}
+			}//getData
+			#select_wsn{
+				font-size: 16px;
+			    background: none;
+			    -webkit-appearance: none;
+			    -webkit-border-radius: 0px;
+			    padding-left: 10px;
+			    border-color: $blue;
+			    height: 32px;
+			    &:focus{
+			    	outline: 0;
+			    }
+			}
+			#showData, #showWsn{
+				min-height: 400px;
+				.highcharts-range-selector-buttons,
+				.highcharts-input-group{
+					display: none;
+				}
+			}//showdate
+		}//motor-history, .wsn-history
+	}//container
+}//history
 
 .home_btn{
 	position: absolute;
@@ -571,6 +642,7 @@ $blue: #2b79a9;
 	top: 25px;
 	font-size: 24px;
 	color: $blue;
+	z-index: 9999;
 }
 
 #preloader{

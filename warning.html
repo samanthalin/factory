@@ -41,7 +41,7 @@
 		             </select>
 		          </span>
 		          <span v-if="dateType === 'pickday'" v-on:change="greet" id="datepicker">
-		          	<input type="date" name="bday">
+		          	<input type="date" name="bday" placeholder="mm/dd/yyyy">
 		          </span>
 
 		          <button v-on:click="greet" id="get_button">確定</button>

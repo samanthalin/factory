@@ -7,19 +7,20 @@
 	<title>Smart Factory</title>
 	<link rel="stylesheet" href="style.css">
 	<link rel="stylesheet" href="font/css/font-awesome.min.css">
-	<link rel="stylesheet" href="loding/grasp_mobile_progress_circle-1.0.0.min.css">
-	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-	
-	<script src="jquery-3.2.1.min.js"></script>
+	<!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
+
+	<script src="https://code.ionicframework.com/1.1.0/js/ionic.bundle.js"></script>
+	<script src="https://rawgit.com/katemihalikova/ion-datetime-picker/master/release/ion-datetime-picker.min.js"></script>
+	<script src="./jquery-3.2.1.min.js"></script>
 	<script src="./moment.min.js"></script>
 	<script src="https://code.highcharts.com/stock/highstock.js"></script>
 	<script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
-	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
 
 	<script src="history.js"></script>
 
 </head>
-<body class="history">
+<body class="history-data">
 	 
 	<a href="index.html" class="home_btn">
 		<i i class="fa fa-th-large" aria-hidden="true"></i>
@@ -28,16 +29,23 @@
 	<div class="container">
 		<div class="title">歷史紀錄</div>
 		
-		<div class="motor-history">
-			<div class="sub-title">馬達歷史資料</div>
-			<input type="text" value="" id="date">
-			<input type="text" value="" id="time">
-			<button type="button" id="getData">確定</button>
+		<div class="motor-history" ng-app="myApp">
+			<div class="sub-title">
+				<span>馬達歷史資料</span>
+			</div>
+			
+			<div class="item" ion-datetime-picker seconds am-pm ng-model="datetimeValue">
+				{{datetimeValue| date: "yyyy-MM-dd h:mm:ss a"}}
+			</div>
+			
+			<button type="button" id="getData">畫圖</button>
 			<div id="showData"></div>
 		</div>
 
-		<div class="wsn-history">
-			<div class="sub-title">WSN歷史資料</div>
+		<div class="wsn-history" ng-app="myApp2">
+			<div class="sub-title">
+				<span>WSN歷史資料</span>
+			</div>
 			<span class="dropdown">
 				<select name="" id="select_wsn">
 					<option value="bbbb::12:4b00:615:a72a">A72A</option>
@@ -53,18 +61,19 @@
 					<option value="bbbb::12:4b00:615:a70e">A70E</option>
 				</select>
 			</span>
-			<input type="date" id="date-w">
-			<button type="button" id="getWsn">確定</button>
+			<div class="item" ion-datetime-picker2 date ng-model="datetimeValue2" >
+				{{datetimeValue2| date: "yyyy-MM-dd"}}
+			</div>
+			<button type="button" id="getWsn">畫圖</button>
 			<div id="showWsn"></div>
 		</div><!-- wsn-history -->
 	</div><!-- container -->
-	<script>
+	<!-- <script>
     	$( function() {
 		    $( "#date" ).datepicker();
 		    $( "#time" ).datepicker();
 	  	} );
-  	</script>
-	
+  	</script> -->
 
 </body>
 </html>

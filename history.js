@@ -1,15 +1,18 @@
+angular.module("myApp", ["ionic", "ion-datetime-picker"]);
+angular.module("myApp2", ["ionic", "ion-datetime-picker2"]);
+
 $(document).ready(function() {
 
     $('#getData').on('click', selectedHistory)
 
     function selectedHistory() {
-        var date = $('#date').val();
-        var time = $('#time').val();
-        var dateTime = date + ' ' + time
-        var convertedTime = moment(dateTime, 'YYYY-MM-DD hh:mm:ss').format('x')
+        var dateTime = $('.ng-binding').text();
+        // var time = $('#time').val();
+        // var dateTime = date + ' ' + time
+        var convertedTime = moment(dateTime, 'YYYY-MM-DD hh:mm:ss a').format('x')
             // convertedTime = convertedTime/1000
 
-        console.log('OrginTime:' + dateTime + 'ConvertedTime:' + convertedTime);
+        //console.log('OrginTime:' + dateTime + 'ConvertedTime:' + convertedTime);
         getMotorHistory(convertedTime)
     }
 
@@ -34,9 +37,9 @@ $(document).ready(function() {
                 //   selected: 
                 // },
 
-                title: {
-                    text: 'test'
-                },
+                // title: {
+                //     text: 'test'
+                // },
 
                 xAxis: {
                     type: 'datetime',
@@ -60,7 +63,7 @@ $(document).ready(function() {
     $('#getWsn').on('click', selected)
 
     function selected() {
-        var date = $('#date-w').val();
+        var date = $('.ng-binding').text();
         var convertedDate = moment(date, 'YYYY-MM-DD').format('x')
         var mote = $('#select_wsn').val()
         getWsnHistory(convertedDate, mote)
@@ -87,9 +90,9 @@ $(document).ready(function() {
                 //   selected: 
                 // },
 
-                title: {
-                    text: 'test'
-                },
+                // title: {
+                //     text: 'test'
+                // },
 
                 xAxis: {
                     type: 'datetime',
@@ -107,4 +110,5 @@ $(document).ready(function() {
 
         });
     }
+
 });

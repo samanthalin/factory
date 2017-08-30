@@ -1,3 +1,6 @@
+@import url(http://fonts.googleapis.com/earlyaccess/notosanstc.css);
+@import url(https://code.ionicframework.com/1.1.0/css/ionic.css);
+@import url(https://cdn.rawgit.com/katemihalikova/ion-datetime-picker/87e8e37f2a48e2e6d5e4392f3821e59da605296a/release/ion-datetime-picker.min.css);
 @import url(animate.css);
 /*reset*/
 h1, h2, h3, h4, h5, p {
@@ -41,7 +44,6 @@ table, tr, td {
 /*reset end */
 .index {
   box-sizing: border-box;
-  overflow: hidden;
   font-family: 'Noto Sans TC', sans-serif;
   background-color: black; }
   .index .container {
@@ -133,7 +135,7 @@ table, tr, td {
         width: 90%; } }
 
 .ambient-data {
-  font-family: 'Helvetica'; }
+  font-family: 'Noto Sans TC', sans-serif; }
   .ambient-data .home_btn {
     position: fixed;
     z-index: 999; }
@@ -460,8 +462,7 @@ table, tr, td {
     display: none;
     z-index: 2000;
     background-color: #2b79a9;
-    transition: transform 0.3s;
-    overflow: hidden; }
+    transition: transform 0.3s; }
     .warning-data .scroll-to-top:before, .warning-data .scroll-to-top:after {
       content: '';
       position: absolute;
@@ -480,23 +481,83 @@ table, tr, td {
     .warning-data .scroll-to-top:focus {
       outline: none; }
 
-.history {
-  font-family: 'Helvetica'; }
-  .history .container {
+.history-data {
+  font-family: 'Helvetica';
+  overflow-y: scroll !important; }
+  .history-data .container {
     width: 80%;
     margin: auto; }
-    .history .container .title {
+    .history-data .container .title {
       width: 100%;
       text-align: center;
       font-size: 28px;
-      margin-top: 15px; }
+      margin-top: 32px;
+      line-height: 28px; }
+    .history-data .container .motor-history .sub-title span, .history-data .container .wsn-history .sub-title span {
+      background-color: #2b79a9;
+      color: white;
+      width: 128px;
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+      margin-top: 50px;
+      font-size: 16px;
+      padding: 0 10px;
+      display: block; }
+    .history-data .container .motor-history .item, .history-data .container .motor-history select, .history-data .container .wsn-history .item, .history-data .container .wsn-history select {
+      width: 218px;
+      padding: 7px 5px 5px 12px;
+      min-height: 34px;
+      border: 1px solid #2b79a9;
+      float: left;
+      cursor: pointer;
+      margin-top: 12px; }
+      .history-data .container .motor-history .item:after, .history-data .container .motor-history select:after, .history-data .container .wsn-history .item:after, .history-data .container .wsn-history select:after {
+        font-family: 'fontAwesome';
+        content: "\f073";
+        color: #2b79a9;
+        right: 8px;
+        position: absolute; }
+    .history-data .container .motor-history button, .history-data .container .wsn-history button {
+      float: left;
+      border: none;
+      background-color: white;
+      margin-top: 12px;
+      border: 1px solid #2b79a9;
+      height: 34px;
+      padding: 0;
+      text-align: top;
+      padding: 0 10px;
+      color: #2b79a9; }
+      .history-data .container .motor-history button:hover, .history-data .container .motor-history button:active, .history-data .container .wsn-history button:hover, .history-data .container .wsn-history button:active {
+        background-color: #2b79a9;
+        color: white; }
+    .history-data .container .motor-history #select_wsn, .history-data .container .wsn-history #select_wsn {
+      font-size: 16px;
+      background: none;
+      -webkit-appearance: none;
+      -webkit-border-radius: 0px;
+      padding-left: 10px;
+      border-color: #2b79a9;
+      height: 32px; }
+      .history-data .container .motor-history #select_wsn:focus, .history-data .container .wsn-history #select_wsn:focus {
+        outline: 0; }
+    .history-data .container .motor-history #showData, .history-data .container .motor-history #showWsn, .history-data .container .wsn-history #showData, .history-data .container .wsn-history #showWsn {
+      min-height: 400px; }
+      .history-data .container .motor-history #showData .highcharts-range-selector-buttons,
+      .history-data .container .motor-history #showData .highcharts-input-group, .history-data .container .motor-history #showWsn .highcharts-range-selector-buttons,
+      .history-data .container .motor-history #showWsn .highcharts-input-group, .history-data .container .wsn-history #showData .highcharts-range-selector-buttons,
+      .history-data .container .wsn-history #showData .highcharts-input-group, .history-data .container .wsn-history #showWsn .highcharts-range-selector-buttons,
+      .history-data .container .wsn-history #showWsn .highcharts-input-group {
+        display: none; }
 
 .home_btn {
   position: absolute;
   left: 25px;
   top: 25px;
   font-size: 24px;
-  color: #2b79a9; }
+  color: #2b79a9;
+  z-index: 9999; }
 
 #preloader {
   position: fixed;
