@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-    var url = "https://blahdns.herokuapp.com/http://140.124.184.204:8080/Cloud/Iotivity/QueryAll",
+    var url = "http://140.124.184.204:8080/Cloud/Iotivity/QueryAll",
           container = $("#container"),
           voltage = [];
       $.ajax({

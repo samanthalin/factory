@@ -18,7 +18,7 @@ $(document).ready(function() {
 
 
     function getMotorHistory(dateTime) {
-        var url = 'https://blahdns.herokuapp.com/http://140.124.184.204:8080/Cloud/Iotivity/QuerySecond?second=' + dateTime
+        var url = 'http://140.124.184.204:8080/Cloud/Iotivity/QuerySecond?second=' + dateTime
         $.getJSON(url, function(data) {
             // Create the chart
             var reData = data.map(value => {
@@ -70,7 +70,7 @@ $(document).ready(function() {
     }
 
     function getWsnHistory(date, mote) {
-        var url = 'https://blahdns.herokuapp.com/http://140.124.184.204:8080/Cloud/WSN/queryDate?epoch='+date+'&mote='+mote
+        var url = 'http://140.124.184.204:8080/Cloud/WSN/queryDate?epoch='+date+'&mote='+mote
         console.log(url)
         $.getJSON(url, function(data) {
             // Create the chart

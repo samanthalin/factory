@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  var corsProxyServer = 'https://blahdns.herokuapp.com/';
+  var corsProxyServer = '';
   var ntutCsieServer = 'http://140.124.184.204:8080/Cloud/'
   var date = moment().format('x')//moment("2017-08-23").format('x')
   var page = 1
